@@ -2,44 +2,23 @@ const from = document.querySelector("#todofrom");
 const todolist = document.querySelector("#Todolist");
 const todoinput = document.querySelector("#inp");
 
+var DataArray = ["HTML", "CSS", "JavaScript"];
+if (!localStorage.getItem("List")) {
+  localStorage.setItem("List", JSON.stringify(DataArray));
+}
+var DataArray = JSON.parse(localStorage.getItem("List"));
 
-const DataArray = ["HTML", "CSS", "JavaScript"];
-localStorage.setItem("List", JSON.stringify(DataArray));
-const Todolist = JSON.parse(localStorage.getItem("List"));
-Todolist.map((value) => {
-    todolist.innerHTML += `<li>${value}</li>`
-})
-
-let inpValue;
 from.addEventListener("submit", (event) => {
-    event.preventDefault()
-    const todoVal = event.target.children[0].value;
-    inpValue = todoVal
-    localStorage.setItem("inpval", inpValue)
-    const inpValuePrint = localStorage.getItem("inpval");
-    todolist.innerHTML += `<li>${inpValuePrint}</li>`
-    event.target.reset();
-})
+  event.preventDefault();
+  var array = JSON.parse(localStorage.getItem("List"));
+  todoVal = event.target.children[0].value;
+  array.push(todoVal);
+  localStorage.setItem("List", JSON.stringify(array));
 
+  todolist.innerHTML += `<p> ${todoVal}</p>`;
+  event.target.reset();
+});
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+DataArray.map((value) => {
+  todolist.innerHTML += `<p> ${value}</p>`;
+});

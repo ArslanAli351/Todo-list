@@ -1,0 +1,20 @@
+body {
+  margin: auto;
+  display: flex;
+  justify-content: center;
+  margin-top: 120px;
+  background-image: url("background.jpeg");
+  background-repeat: no-repeat;
+  background-size: 1200px 800px;
+}
+#main {
+  border: 1px solid rgb(107, 104, 104);
+  border-style: double;
+  width: 30%;
+  background-color: rgb(193, 194, 179);
+  border-radius: 30px;
+  box-shadow: 10px 10px 5px rgb(144, 148, 149);
+}
+h1{
+    font-family: 'Courier New', Courier, monospace;
+}
